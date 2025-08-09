@@ -48,7 +48,7 @@ catalog:
   turbo: ^2.5.5
   typescript: ^5.9.2
   typescript-eslint: ^8.39.0
-  vite: ^7.0.4
+  vite: ^7.1.1
 
 onlyBuiltDependencies:
   - '@nestjs/core'

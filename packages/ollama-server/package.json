@@ -1,5 +1,5 @@
 {
-  "name": "ollama",
+  "name": "ollama-server",
   "scripts": {
     "dev": "docker start ollama && docker exec -it ollama ollama run llama3.1"
   },

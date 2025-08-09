@@ -9,6 +9,8 @@
     "@nestjs/common": "catalog:",
     "@nestjs/core": "catalog:",
     "@nestjs/platform-express": "catalog:",
+    "crawlee": "^3.14.1",
+    "playwright": "^1.54.2",
     "reflect-metadata": "catalog:",
     "rxjs": "catalog:"
   },
@@ -19,7 +21,7 @@
     "@swc/cli": "catalog:",
     "@swc/core": "catalog:",
     "@types/node": "catalog:",
-    "typescript": "catalog:",
-    "globals": "catalog:"
+    "globals": "catalog:",
+    "typescript": "catalog:"
   }
 }

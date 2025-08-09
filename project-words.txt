@@ -5,3 +5,4 @@ nodenext
 avni
 knip
 commitlint
+crawlee

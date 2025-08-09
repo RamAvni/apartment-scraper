@@ -1,0 +1,7 @@
+esbuild
+vite
+vitejs
+nodenext
+avni
+knip
+commitlint

@@ -1,0 +1,1 @@
+pnpm commitlint -c --verbose --edit $1

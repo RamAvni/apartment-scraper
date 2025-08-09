@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "scripts": {
+    "build": "nest build",
+    "dev": "NODE_ENV=development nest start --watch",
+    "eslint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+  },
+  "dependencies": {
+    "@nestjs/common": "catalog:",
+    "@nestjs/core": "catalog:",
+    "@nestjs/platform-express": "catalog:",
+    "reflect-metadata": "catalog:",
+    "rxjs": "catalog:"
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "@nestjs/cli": "catalog:",
+    "@nestjs/schematics": "catalog:",
+    "@swc/cli": "catalog:",
+    "@swc/core": "catalog:",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "globals": "catalog:"
+  }
+}

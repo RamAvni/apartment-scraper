@@ -9,5 +9,10 @@
       "addWords": true
     }
   ],
-  "ignorePaths": ["pnpm-lock.yaml", "**/node_modules", "**/dist**"]
+  "ignorePaths": [
+    "pnpm-lock.yaml",
+    "**/node_modules",
+    "**/dist**",
+    "**/storage**"
+  ]
 }

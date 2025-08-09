@@ -7,7 +7,7 @@ export class CrawlerController {
   constructor(private readonly crawlerService: CrawlerService) {}
 
   @Post()
-  scrape(@Body() scrapeBody: scrapeDto) {
-    return this.crawlerService.scrape(scrapeBody.urls);
+  async scrape(@Body() body: scrapeDto) {
+    return await this.crawlerService.scrape(body.urls);
   }
 }

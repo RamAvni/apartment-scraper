@@ -1,0 +1,70 @@
+{
+  "requestsFinished": 0,
+  "requestsFailed": 1,
+  "requestsRetries": 1,
+  "requestsFailedPerMinute": 3,
+  "requestsFinishedPerMinute": 0,
+  "requestMinDurationMillis": null,
+  "requestMaxDurationMillis": 0,
+  "requestTotalFailedDurationMillis": 28,
+  "requestTotalFinishedDurationMillis": 0,
+  "crawlerStartedAt": "2025-08-09T22:30:39.433Z",
+  "crawlerFinishedAt": "2025-08-09T22:30:58.515Z",
+  "statsPersistedAt": "2025-08-09T22:30:58.515Z",
+  "crawlerRuntimeMillis": 19380,
+  "crawlerLastStartTimestamp": 1754778639135,
+  "requestRetryHistogram": [
+    null,
+    null,
+    null,
+    1
+  ],
+  "statsId": 0,
+  "requestAvgFailedDurationMillis": 28,
+  "requestAvgFinishedDurationMillis": null,
+  "requestTotalDurationMillis": 28,
+  "requestsTotal": 1,
+  "requestsWithStatusCode": {
+    "200": 1
+  },
+  "errors": {
+    "/home/ramavni/personal/apartment-scraper/node_modules/.pnpm/@crawlee+browser-pool@3.14.1_playwright@1.54.2/node_modules/@crawlee/src/browser-pool.ts:595:19": {
+      "missing error code": {
+        "Error": {
+          "browserController.newPage() failed: tI3pQKcooe8ui0qkQDORG": {
+            "count": 1
+          }
+        }
+      }
+    }
+  },
+  "retryErrors": {
+    "/home/ramavni/personal/apartment-scraper/server/src/crawler/crawlee-routers.ts:52:16": {
+      "missing error code": {
+        "Error": {
+          "page.waitForTimeout: Target page, context or browser has been closed": {
+            "count": 1
+          }
+        }
+      }
+    },
+    "/home/ramavni/personal/apartment-scraper/node_modules/.pnpm/@crawlee+browser-pool@3.14.1_playwright@1.54.2/node_modules/@crawlee/src/browser-pool.ts:595:19": {
+      "missing error code": {
+        "Error": {
+          "browserController.newPage() failed: TP5oGomO8ze-_3SvgyxE7": {
+            "count": 1
+          }
+        }
+      }
+    },
+    "/home/ramavni/personal/apartment-scraper/node_modules/.pnpm/@crawlee+playwright@3.14.1_playwright@1.54.2/node_modules/@crawlee/src/internals/utils/playwright-utils.ts:241:17": {
+      "missing error code": {
+        "Error": {
+          "page.goto: Target page, context or browser has been closed": {
+            "count": 1
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "ollama",
+  "scripts": {
+    "dev": "docker start ollama && docker exec -it ollama ollama run llama3.1"
+  },
+  "packageManager": "pnpm@10.13.1"
+}

@@ -1,25 +1,7 @@
-I am tired of setups
+Hi!
+This is my apartment scraper
 
-Includes:
+Prerequisites:
 
-- Pnpm with catalog
-- React-Vite
-- Nest-JS
-- Turbo monorepo
-  - with a pipeline!
-- Husky and commitlint
-- Empty Packages directory
-- CSpell
-- Eternal happiness
-
-NOT included:
-
-- CI/CD
-
-- E2E library
-- Unit testing library
-
-- UI library
-- React-Router
-
-- CSS-addons (tailwind/scss)
+- A docker container created from the ollama image, named 'ollama' with llama3.1 installed.
+  NOTE: it must map its 11343 port to your own.

@@ -1,25 +1,51 @@
-I am tired of setups
+## OLTP DB
+```mermaid
+erDiagram
+    POSTS {
+        int id PK
+        string posterName
+        string postContent
+        string[] imageUrls
+    }
 
-Includes:
+    ITEMS {
+           note for items
+      An item has exactly one subtype record
+      stored in one of the subtype tables
+    end noteint id PK
+        int post_id FK
+        string item_type
+        int specific_item_id FK
+    }
 
-- Pnpm with catalog
-- React-Vite
-- Nest-JS
-- Turbo monorepo
-  - with a pipeline!
-- Husky and commitlint
-- Empty Packages directory
-- CSpell
-- Eternal happiness
+    ITEMS_APARTMENTS {
+        int id PK
+        string location
+        int rooms
+        float size
+        float price
+    }
 
-NOT included:
+    ITEMS_UNSPECIFIED {
+        int id PK
+        string title
+        string description
+        float price
+    }
 
-- CI/CD
+    ITEMS_MUSICAL_INSTRUMENTS {
+        int id PK
+        string category
+        string condition
+        float price
+    }
 
-- E2E library
-- Unit testing library
+    POSTS ||--o{ ITEMS : "has many"
+    ITEMS ||--|| ITEMS_APARTMENTS : "specific item (if type=apartment)"
+    ITEMS ||--|| ITEMS_UNSPECIFIED : "specific item (if type=unspecified)"
+    ITEMS ||--|| ITEMS_MUSICAL_INSTRUMENTS : "specific item (if type=musical_instrument)"
+```
 
-- UI library
-- React-Router
-
-- CSS-addons (tailwind/scss)
+> [!NOTE]
+> In the items table, an item has exactly one subtype record stored in one of the subtype tables (e.g. A `Post` about an `Item` which is an `Apartment`)
+> So, while this is the diagram, it may not accurately represent the actual state of the DB.

@@ -1,7 +1,8 @@
 {
   "name": "ollama-server",
   "scripts": {
-    "dev": "docker start ollama && docker exec -it ollama ollama run llama3.1"
+    "dev": "docker start ollama && docker exec -it ollama ollama run llama3.1",
+    "postdev": "docker stop ollama"
   },
   "packageManager": "pnpm@10.13.1"
 }

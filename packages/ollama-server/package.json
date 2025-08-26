@@ -7,7 +7,6 @@
     "ollama:log:short": "docker logs -f ollama 2>&1 | grep --line-buffered -oP '(?<=>).*?(?=<)' | sed 's/\\\\n/\\n/g'",
     "postollama:log:short": "echo 'Closed - Please make sure your container is running!'",
     "ollama:log:tofile": "echo Running! Read the README of this package && bash -c 'docker logs -f ollama &>> ollama-log.log'",
-    "ollama:interactive": "docker exec -it ollama ollama run llama3.1",
     "ollama:bash": "docker exec -it ollama bash",
     "postdev": "docker stop ollama"
   },

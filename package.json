@@ -3,7 +3,7 @@
   "author": "RamAvni",
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev *:log",
+    "dev": "turbo run dev",
     "lint": "turbo run eslint ls-lint stylelint",
     "prettier": "prettier --check .",
     "ls-lint": "ls-lint",

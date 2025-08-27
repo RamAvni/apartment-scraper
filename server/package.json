@@ -7,16 +7,17 @@
   },
   "dependencies": {
     "@nestjs/common": "catalog:",
-    "@nestjs/config": "^4.0.2",
+    "@nestjs/config": "catalog:",
     "@nestjs/core": "catalog:",
     "@nestjs/platform-express": "catalog:",
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.2",
-    "crawlee": "^3.14.1",
-    "ollama": "^0.5.17",
-    "playwright": "^1.54.2",
+    "class-transformer": "catalog:",
+    "class-validator": "catalog:",
+    "crawlee": "catalog:",
+    "ollama": "catalog:",
+    "playwright": "catalog:",
     "reflect-metadata": "catalog:",
-    "rxjs": "catalog:"
+    "rxjs": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@eslint/js": "catalog:",

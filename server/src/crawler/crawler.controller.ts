@@ -1,14 +1,15 @@
 import { Body, Controller, Post } from "@nestjs/common";
 import { CrawlerService } from "./crawler.service";
 import { scrapeDto } from "./dtos/scrape.dto";
-import ollama from "ollama";
 import { facebookPostDto } from "./dtos/facebook-post.dto";
-import { PROMPT } from "./consts/prompt.const";
-import { MODEL } from "./consts/model.const";
+import { OllamaService } from "src/ollama/ollama.service";
 
 @Controller("crawler")
 export class CrawlerController {
-  constructor(private readonly crawlerService: CrawlerService) {}
+  constructor(
+    private readonly crawlerService: CrawlerService,
+    private readonly ollamaService: OllamaService,
+  ) {}
 
   @Post()
   async scrape(@Body() { urls }: scrapeDto) {
@@ -17,15 +18,6 @@ export class CrawlerController {
 
   @Post("facebook-post")
   async ollama(@Body() { text }: facebookPostDto) {
-    console.log(text);
-    const res = await ollama.chat({
-      model: MODEL,
-      messages: [
-        { role: "assistant", content: PROMPT },
-        { role: "user", content: text },
-      ],
-    });
-    console.log(res);
-    return res.message.content;
+    return await this.ollamaService.parseFacebookPost(text);
   }
 }

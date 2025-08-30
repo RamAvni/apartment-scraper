@@ -1,0 +1,14 @@
+{
+  "name": "ollama-server",
+  "scripts": {
+    "dev": "docker start ollama && pnpm ollama:bash",
+    "ollama:log": "docker logs -f ollama",
+    "postollama:log": "echo '\n\n\n Closed - Please make sure your container is running!'",
+    "ollama:log:short": "docker logs -f ollama 2>&1 | grep --line-buffered -oP '(?<=>).*?(?=<)' | sed 's/\\\\n/\\n/g'",
+    "postollama:log:short": "echo 'Closed - Please make sure your container is running!'",
+    "ollama:log:tofile": "echo Running! Read the README of this package && bash -c 'docker logs -f ollama &>> ollama-log.log'",
+    "ollama:bash": "docker exec -it ollama bash",
+    "postdev": "docker stop ollama"
+  },
+  "packageManager": "pnpm@10.13.1"
+}

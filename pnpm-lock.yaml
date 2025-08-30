@@ -13,8 +13,8 @@ catalogs:
       specifier: ^19.8.1
       version: 19.8.1
     '@eslint/js':
-      specifier: 9.32.0
-      version: 9.32.0
+      specifier: 9.34.0
+      version: 9.34.0
     '@ls-lint/ls-lint':
       specifier: ^2.3.1
       version: 2.3.1
@@ -145,7 +145,7 @@ importers:
         version: 19.8.1
       '@eslint/js':
         specifier: 'catalog:'
-        version: 9.32.0
+        version: 9.34.0
       '@ls-lint/ls-lint':
         specifier: 'catalog:'
         version: 2.3.1
@@ -266,7 +266,7 @@ importers:
     devDependencies:
       '@eslint/js':
         specifier: 'catalog:'
-        version: 9.32.0
+        version: 9.34.0
       '@nestjs/cli':
         specifier: 'catalog:'
         version: 11.0.10(@swc/cli@0.7.8(@swc/core@1.13.5)(chokidar@4.0.3))(@swc/core@1.13.5)(@types/node@22.18.0)
@@ -1037,10 +1037,6 @@ packages:
 
   '@eslint/eslintrc@3.3.1':
     resolution: {integrity: sha512-gtF186CXhIl1p4pJNGZw8Yc6RlshoePRvE0X91oPGb3vZ8pM3qOS9W9NGPat9LziaBV7XrJWGylNQXkGcnM3IQ==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  '@eslint/js@9.32.0':
-    resolution: {integrity: sha512-BBpRFZK3eX6uMLKz8WxFOBIFFcGFJ/g8XuwjTHCqHROSIsopI+ddn/d5Cfh36+7+e5edVS8dbSHnBNhrLEX0zg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/js@9.34.0':
@@ -5613,8 +5609,6 @@ snapshots:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
-
-  '@eslint/js@9.32.0': {}
 
   '@eslint/js@9.34.0': {}
 

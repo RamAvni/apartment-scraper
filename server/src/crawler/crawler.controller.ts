@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from "@nestjs/common";
 import { CrawlerService } from "./crawler.service";
-import { scrapeDto } from "./dtos/scrape.dto";
-import { facebookPostDto } from "./dtos/facebook-post.dto";
+import { scrapeDto } from "./dtos";
+import { facebookPostDto } from "./dtos";
 import { OllamaService } from "src/ollama/ollama.service";
 
 @Controller("crawler")

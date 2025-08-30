@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { PROMPT } from "./consts/prompt.const";
-import { MODEL } from "./consts/model.const";
+import { PROMPT } from "./consts";
+import { MODEL } from "./consts";
 import ollama from "ollama";
 import z from "zod";
-import { ParsedFacebookPostSchema } from "./schemas/parsed-facebook-post.schema";
+import { ParsedFacebookPostSchema } from "./schemas";
 
 @Injectable()
 export class OllamaService {

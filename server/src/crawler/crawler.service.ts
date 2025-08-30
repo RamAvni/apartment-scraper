@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { PlaywrightCrawler } from "crawlee";
 import { router } from "./crawlee-routers";
-import { getCookies } from "./functions/get-cookies.function";
+import { getCookies } from "./functions";
 
 @Injectable()
 export class CrawlerService {

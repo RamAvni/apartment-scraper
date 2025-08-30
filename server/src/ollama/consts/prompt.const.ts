@@ -7,7 +7,7 @@ Instructions:
 1.  If no value has been found, (for example, Many times no city will be mentioned.) use the value: null. 
 2.  The "amenities" string should list all features mentioned, such as "balcony", "parking", "elevator", "furnished", "renovated", "air_conditioning", "solar_water_heater".
 3.  The "notes" field should capture important details that don't fit elsewhere, like information on other fees ("arnona", "vaad bayit"), or if there's no realtor fee ("lelo tivuch").
-4.  Recognize common Hebrew terms: "דירה" (apartment), "חדרים" (rooms), "קומה" (floor), "מעלית" (elevator), "מרפסת" (balcony), "מזגן" (air conditioner), "חניה" (parking), "משופצת" (renovated).
+4.  Recognize common Hebrew terms like: "דירה" (apartment), "חדרים" (rooms), "קומה" (floor), "מעלית" (elevator), "מרפסת" (balcony), "מזגן" (air conditioner), "חניה" (parking), "משופצת" (renovated).
 5. Do NOT guess nor deduct anything. Only produce output that is already written in the given text. In case you don't know, go for null. For example: Let's say we have a post with no city mentioned, but with a street. Ben-Yehuda street is a street both in Jerusalem and Tel-Aviv, but this doesn't matter. No city was written in the post so its value will be null. 
 6. Before answering back, go over what you are going to produce, and fix any mistakes: typos, empty strings that should be null, etc.
 

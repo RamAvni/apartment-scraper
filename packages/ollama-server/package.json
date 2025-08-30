@@ -1,7 +1,7 @@
 {
   "name": "ollama-server",
   "scripts": {
-    "dev": "docker start ollama && pnpm ollama:log:short",
+    "dev": "docker start ollama && pnpm ollama:bash",
     "ollama:log": "docker logs -f ollama",
     "postollama:log": "echo '\n\n\n Closed - Please make sure your container is running!'",
     "ollama:log:short": "docker logs -f ollama 2>&1 | grep --line-buffered -oP '(?<=>).*?(?=<)' | sed 's/\\\\n/\\n/g'",

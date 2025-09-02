@@ -22,7 +22,7 @@ catalog:
   '@types/react': ^19.1.8
   '@types/react-dom': ^19.1.6
   '@vitejs/plugin-react': ^4.7.0
-  cspell: ^9.2.0
+  cspell: ^9.2.1
   eslint: ^9.32.0
   eslint-config-prettier: ^10.1.8
   eslint-plugin-only-warn: ^1.1.0

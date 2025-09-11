@@ -5,7 +5,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run eslint ls-lint stylelint",
-    "prettier": "prettier --check .",
+    "prettier": "prettier --check . --ignore-path ./.prettierignore --ignore-path ./.gitignore --ignore-path ./apps/client/.gitignore --ignore-path ./server/.gitignore",
     "ls-lint": "ls-lint",
     "stylelint": "stylelint **/*.css",
     "spell": "cspell **",

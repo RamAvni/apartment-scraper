@@ -9,9 +9,11 @@ catalog:
   '@eslint/eslintrc': ^3.2.0
   '@eslint/js': 9.32.0
   '@ls-lint/ls-lint': ^2.3.1
-  '@mikro-orm/core': ^6.5.1
-  '@mikro-orm/mysql': ^6.5.1
+  '@mikro-orm/cli': ^6.5.2
+  '@mikro-orm/core': ^6.5.2
+  '@mikro-orm/mysql': ^6.5.2
   '@mikro-orm/nestjs': ^6.1.1
+  '@mikro-orm/reflection': ^6.5.2
   '@nestjs/cli': ^11.0.10
   '@nestjs/common': ^11.1.5
   '@nestjs/config': ^4.0.2
@@ -30,6 +32,7 @@ catalog:
   class-validator: ^0.14.2
   crawlee: ^3.14.1
   cspell: ^9.2.0
+  dotenv: ^17.2.2
   eslint: ^9.32.0
   eslint-config-prettier: ^10.1.8
   eslint-plugin-only-warn: ^1.1.0

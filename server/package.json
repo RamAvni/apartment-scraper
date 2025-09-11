@@ -3,7 +3,9 @@
   "scripts": {
     "build": "nest build",
     "dev": "NODE_ENV=development nest start --watch",
-    "eslint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+    "eslint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "orm": "mikro-orm-esm",
+    "orm:debug": "NODE_ENV=development pnpm orm debug"
   },
   "dependencies": {
     "@mikro-orm/core": "catalog:",
@@ -16,6 +18,7 @@
     "class-transformer": "catalog:",
     "class-validator": "catalog:",
     "crawlee": "catalog:",
+    "dotenv": "catalog:",
     "ollama": "catalog:",
     "playwright": "catalog:",
     "reflect-metadata": "catalog:",
@@ -24,12 +27,14 @@
   },
   "devDependencies": {
     "@eslint/js": "catalog:",
+    "@mikro-orm/cli": "catalog:",
     "@nestjs/cli": "catalog:",
     "@nestjs/schematics": "catalog:",
     "@swc/cli": "catalog:",
     "@swc/core": "catalog:",
     "@types/node": "catalog:",
     "globals": "catalog:",
+    "ts-node": "catalog:",
     "typescript": "catalog:"
   }
 }

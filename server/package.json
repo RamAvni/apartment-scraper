@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@mikro-orm/core": "catalog:",
+    "@mikro-orm/migrations": "catalog:",
     "@mikro-orm/mysql": "catalog:",
     "@mikro-orm/nestjs": "catalog:",
     "@nestjs/common": "catalog:",

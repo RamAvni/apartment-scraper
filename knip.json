@@ -1,5 +1,6 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "ignoreBinaries": ["sed"],
-  "ignoreDependencies": ["ts-node"]
+  "ignoreDependencies": ["ts-node", "@mikro-orm/migrations"],
+  "ignore": ["./server/src/migrations/*"]
 }

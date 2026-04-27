@@ -4,6 +4,8 @@ import { config } from "dotenv";
 
 config({ path: `./.env.${process.env.NODE_ENV}.local` });
 
+console.log("DB_NAME:", process.env.DB_NAME);
+
 export default defineConfig({
   driver: MySqlDriver,
   dbName: process.env.DB_NAME,

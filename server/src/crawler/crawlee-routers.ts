@@ -18,6 +18,7 @@ router.addHandler("FACEBOOK_POST", async ({ page }) => {
 });
 
 router.addDefaultHandler(async ({ page, request, enqueueLinks }) => {
+  await page.waitForTimeout(2000);
   await page.waitForSelector("h1");
 
   const postLinksArr: string[] = [];

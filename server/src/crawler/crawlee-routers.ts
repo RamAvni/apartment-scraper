@@ -1,4 +1,5 @@
 import { createPlaywrightRouter } from "crawlee";
+import { expect } from "playwright/test";
 
 export const router = createPlaywrightRouter();
 
@@ -18,8 +19,7 @@ router.addHandler("FACEBOOK_POST", async ({ page }) => {
 });
 
 router.addDefaultHandler(async ({ page, request, enqueueLinks }) => {
-  await page.waitForTimeout(2000);
-  await page.waitForSelector("h1");
+  await expect(page.getByText("שיתוף").first()).toBeVisible();
 
   const postLinksArr: string[] = [];
 

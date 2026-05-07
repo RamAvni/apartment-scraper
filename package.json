@@ -10,8 +10,7 @@
     "stylelint": "stylelint **/*.css",
     "spell": "cspell **",
     "knip": "knip",
-    "pipeline": "turbo run eslint ls-lint stylelint prettier spell knip build",
-    "prepare": "husky"
+    "pipeline": "turbo run eslint ls-lint stylelint prettier spell knip build"
   },
   "devDependencies": {
     "@commitlint/cli": "catalog:",
@@ -25,7 +24,6 @@
     "eslint-plugin-prettier": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
     "eslint-plugin-react-refresh": "catalog:",
-    "husky": "catalog:",
     "knip": "catalog:",
     "prettier": "catalog:",
     "stylelint": "catalog:",

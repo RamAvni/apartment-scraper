@@ -1,8 +1,7 @@
 {
   "name": "server",
   "scripts": {
-    "build": "nest build",
-    "dev": "NODE_ENV=development xvfb-run nest start --watch",
+    "start": "bash ./run.sh",
     "eslint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "orm": "mikro-orm-esm",
     "orm:debug": "NODE_ENV=development pnpm orm debug"
@@ -11,11 +10,6 @@
     "@mikro-orm/core": "catalog:",
     "@mikro-orm/migrations": "catalog:",
     "@mikro-orm/mysql": "catalog:",
-    "@mikro-orm/nestjs": "catalog:",
-    "@nestjs/common": "catalog:",
-    "@nestjs/config": "catalog:",
-    "@nestjs/core": "catalog:",
-    "@nestjs/platform-express": "catalog:",
     "class-transformer": "catalog:",
     "class-validator": "catalog:",
     "crawlee": "catalog:",
@@ -29,8 +23,6 @@
   "devDependencies": {
     "@eslint/js": "catalog:",
     "@mikro-orm/cli": "catalog:",
-    "@nestjs/cli": "catalog:",
-    "@nestjs/schematics": "catalog:",
     "@swc/cli": "catalog:",
     "@swc/core": "catalog:",
     "@types/node": "catalog:",

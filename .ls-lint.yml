@@ -45,3 +45,4 @@ ignore:
   - "**/dist"
   - "**/storage"
   - "**/.*" # NOTE: Ignore all dot-files.
+  - "**/src/migrations"

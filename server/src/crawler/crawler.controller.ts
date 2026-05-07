@@ -11,8 +11,13 @@ export class CrawlerController {
     private readonly ollamaService: OllamaService,
   ) {}
 
+  // async onModuleInit() {
+  //   const urls = [] as string[]; // TODO
+  //   await this.crawlerService.scrape(urls);
+  // }
+
   @Post()
-  async scrape(@Body() { urls }: scrapeDto) {
+  async addGroupToScrape(@Body() { urls }: scrapeDto) {
     return await this.crawlerService.scrape(urls);
   }
 

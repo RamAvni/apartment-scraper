@@ -6,7 +6,13 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
-    ignores: ["eslint.config.mjs", "./src/migrations"],
+    ignores: [
+      "eslint.config.mjs",
+      "commitlint.config.mjs",
+      "mikro-orm.config.mjs",
+      "./src/migrations",
+      "build",
+    ],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,

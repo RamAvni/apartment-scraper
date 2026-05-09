@@ -13,11 +13,9 @@ export async function handleApiRequest(
   req: IncomingMessage,
   res: ServerResponse,
 ) {
-  if (req.url?.startsWith("crawler")) {
+  if (req.url?.startsWith("/api/crawler")) {
     switch (req.url) {
-      case "/crawler": {
-        console.log("hi");
-
+      case "api/crawler": {
         const crawler = new PlaywrightCrawler({
           headless: false,
           preNavigationHooks: [
@@ -34,7 +32,7 @@ export async function handleApiRequest(
         res.end("done");
         break;
       }
-      case "/crawler/facebook-post": {
+      case "/api/crawler/facebook-post": {
         if (!req.body) return setError(res, new Error("Needs a body"));
         const ollamaResponse = await ollama.chat({
           model: MODEL,

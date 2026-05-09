@@ -22,8 +22,11 @@ startInWatchMode() {
 	if start; then
 		sleep 2 # NOTE: We sleep in between starts, so that the find command won't find the build-folder changes immediately
 		while true; do
-			if [ $(find . -mmin -0.016 | wc -l) -ne 0 ]; then
-				echo "Files has been changed... Restarting:"
+			result=$(find . -mmin -0.016)
+			if [ $(echo -n "$result" | wc -l) -ne 0 ]; then
+				echo "These files has been changed:"
+				echo "$result"
+				echo "Restarting:"
 				kill -9 $(pgrep -f "node ./build/**")
 				start
 				sleep 2

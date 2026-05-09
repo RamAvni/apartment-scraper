@@ -1,12 +1,12 @@
 import { PlaywrightCrawler } from "crawlee";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import ollama from "ollama";
-import { router } from "src/crawler/crawlee-routers.js";
-import { getCookies } from "src/crawler/functions/get-cookies.function.js";
-import { MODEL } from "src/ollama/consts/model.const.js";
-import { PROMPT } from "src/ollama/consts/prompt.const.js";
-import { ParsedFacebookPostSchema } from "src/ollama/schemas/parsed-facebook-post.schema.js";
 import z from "zod";
+import { getCookies } from "../crawler/functions/get-cookies.function.js";
+import { router } from "../crawler/crawlee-routers.js";
+import { MODEL } from "../ollama/consts/model.const.js";
+import { ParsedFacebookPostSchema } from "../ollama/schemas/parsed-facebook-post.schema.js";
+import { PROMPT } from "../ollama/consts/prompt.const.js";
 
 export async function handleApiRequest(
   req: IncomingMessage,

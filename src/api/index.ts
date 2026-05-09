@@ -1,4 +1,4 @@
-import { PlaywrightCrawler } from "crawlee";
+import { PlaywrightCrawler, Configuration } from "crawlee";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import ollama from "ollama";
 import z from "zod";
@@ -8,6 +8,7 @@ import { MODEL } from "../ollama/consts/model.const.js";
 import { ParsedFacebookPostSchema } from "../ollama/schemas/parsed-facebook-post.schema.js";
 import { PROMPT } from "../ollama/consts/prompt.const.js";
 import { setError } from "../common/functions/set-error.js";
+import { logger } from "../common/functions/logger.js";
 
 export async function handleApiRequest(
   req: IncomingMessage,
@@ -15,20 +16,29 @@ export async function handleApiRequest(
 ) {
   if (req.url?.startsWith("/api/crawler")) {
     switch (req.url) {
-      case "api/crawler": {
-        const crawler = new PlaywrightCrawler({
-          headless: false,
-          preNavigationHooks: [
-            async ({ page }) => {
-              await page.context().addCookies(getCookies());
-            },
-          ],
-          requestHandlerTimeoutSecs: 60 * 4,
-          requestHandler: router,
-        });
+      case "/api/crawler": {
+        const config = new Configuration({ persistStorage: false });
+        const crawler = new PlaywrightCrawler(
+          {
+            headless: false,
+            preNavigationHooks: [
+              async ({ page }) => {
+                await page.context().addCookies(getCookies());
+              },
+            ],
+            requestHandlerTimeoutSecs: 60 * 4,
+            requestHandler: router,
+          },
+          config,
+        );
 
         // TODO: make sure req.body is string[] of urls
-        await crawler.run(req.body);
+        if (!req.body) {
+          logger("errored in req.body", "error");
+          return;
+        }
+        console.log(JSON.parse(req.body));
+        await crawler.run(JSON.parse(req.body).urls);
         res.end("done");
         break;
       }

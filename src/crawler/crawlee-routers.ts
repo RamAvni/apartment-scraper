@@ -19,6 +19,7 @@ router.addHandler("FACEBOOK_POST", async ({ page }) => {
 });
 
 router.addDefaultHandler(async ({ page, request, enqueueLinks }) => {
+  console.log("here!");
   await expect(page.getByText("שיתוף").first()).toBeVisible();
 
   const postLinksArr: string[] = [];

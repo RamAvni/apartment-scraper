@@ -12,7 +12,7 @@
   "ignorePaths": [
     "pnpm-lock.yaml",
     "**/node_modules",
-    "**/dist**",
+    "**/build**",
     "**/storage**",
     "**/README.md",
     "**/migrations"

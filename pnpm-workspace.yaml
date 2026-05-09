@@ -1,6 +1,4 @@
 packages:
-  - apps/*
-  - server
   - packages/*
 
 catalog:
@@ -13,15 +11,6 @@ catalog:
   '@mikro-orm/core': ^6.6.13
   '@mikro-orm/migrations': ^6.6.13
   '@mikro-orm/mysql': ^6.6.13
-  '@mikro-orm/nestjs': ^6.1.2
-  '@mikro-orm/reflection': ^6.5.2
-  '@nestjs/cli': ^11.0.21
-  '@nestjs/common': ^11.1.19
-  '@nestjs/config': ^4.0.4
-  '@nestjs/core': ^11.1.19
-  '@nestjs/platform-express': ^11.1.19
-  '@nestjs/schematics': ^11.1.0
-  '@nestjs/testing': ^11.1.15
   '@swc/cli': ^0.7.10
   '@swc/core': ^1.15.32
   '@types/express': ^5.0.0

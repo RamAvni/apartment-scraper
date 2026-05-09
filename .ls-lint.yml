@@ -42,7 +42,7 @@ ls:
 
 ignore:
   - "**/node_modules"
-  - "**/dist"
+  - "**/build"
   - "**/storage"
   - "**/.*" # NOTE: Ignore all dot-files.
   - "**/src/migrations"

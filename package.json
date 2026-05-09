@@ -1,18 +1,37 @@
 {
-  "name": "put-your-amazing-project-name-here",
-  "author": "RamAvni",
+  "name": "apartment-scraper",
+  "type": "module",
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
+    "start": "bash ./run.sh",
+    "orm": "mikro-orm-esm",
+    "orm:debug": "NODE_ENV=development pnpm orm debug",
+    "build": "tsc",
     "lint": "turbo run eslint ls-lint stylelint",
     "prettier": "prettier --check . --ignore-path ./.prettierignore --ignore-path ./.gitignore --ignore-path ./apps/client/.gitignore --ignore-path ./server/.gitignore",
-    "ls-lint": "ls-lint",
     "stylelint": "stylelint **/*.css",
     "spell": "cspell **",
-    "knip": "knip",
-    "pipeline": "turbo run eslint ls-lint stylelint prettier spell knip build"
+    "pipeline": "eslint && ls-lint && pnpm stylelint && prettier --write . && pnpm spell && knip && build"
+  },
+  "dependencies": {
+    "@mikro-orm/core": "catalog:",
+    "@mikro-orm/migrations": "catalog:",
+    "@mikro-orm/mysql": "catalog:",
+    "class-transformer": "catalog:",
+    "class-validator": "catalog:",
+    "crawlee": "catalog:",
+    "dotenv": "catalog:",
+    "ollama": "catalog:",
+    "playwright": "catalog:",
+    "reflect-metadata": "catalog:",
+    "rxjs": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
+    "@mikro-orm/cli": "catalog:",
+    "@swc/cli": "catalog:",
+    "@swc/core": "catalog:",
+    "globals": "catalog:",
+    "ts-node": "catalog:",
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
     "@eslint/js": "catalog:",
@@ -28,12 +47,7 @@
     "prettier": "catalog:",
     "stylelint": "catalog:",
     "stylelint-config-standard": "catalog:",
-    "turbo": "catalog:",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:"
-  },
-  "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b",
-  "engines": {
-    "node": ">=18"
   }
 }

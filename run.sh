@@ -9,9 +9,14 @@ start() {
 
 	echo -e "Running the Server: \n"
 	node ./build/main.js & # Run web server
+	docker start ollama
 	return 0
 }
 
+cleanup() {
+	echo "Exited. Cleaning up..."
+	docker stop ollama
+}
 
 startInWatchMode() {
 	if start; then
@@ -27,4 +32,5 @@ startInWatchMode() {
 	fi
 }
 
-startInWatchMode
+trap cleanup EXIT
+startInWatchMode 

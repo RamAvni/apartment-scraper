@@ -1,1 +1,1 @@
-export * from "./get-cookies.function";
+export * from "./get-cookies.function.js";

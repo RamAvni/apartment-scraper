@@ -1,2 +1,2 @@
-export * from "./scrape.dto";
-export * from "./facebook-post.dto";
+export * from "./scrape.dto.js";
+export * from "./facebook-post.dto.js";

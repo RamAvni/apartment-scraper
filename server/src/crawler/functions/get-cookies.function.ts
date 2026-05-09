@@ -1,10 +1,8 @@
-import { InternalServerErrorException } from "@nestjs/common";
 import { Cookie } from "playwright";
 
 export function getCookies() {
   const { FACEBOOK_XS, FACEBOOK_C_USER } = process.env;
-  if (!FACEBOOK_XS || !FACEBOOK_C_USER)
-    throw new InternalServerErrorException("Missing Login Info");
+  if (!FACEBOOK_XS || !FACEBOOK_C_USER) throw new Error("Missing Login Info");
 
   const cookies: Omit<Cookie, "expires">[] = [
     {

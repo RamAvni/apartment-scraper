@@ -1,11 +1,12 @@
 import { PlaywrightCrawler } from "crawlee";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import ollama from "ollama";
+import { router } from "src/crawler/crawlee-routers.js";
+import { getCookies } from "src/crawler/functions/get-cookies.function.js";
+import { MODEL } from "src/ollama/consts/model.const.js";
+import { PROMPT } from "src/ollama/consts/prompt.const.js";
+import { ParsedFacebookPostSchema } from "src/ollama/schemas/parsed-facebook-post.schema.js";
 import z from "zod";
-import { router } from "src/crawler/crawlee-routers";
-import { getCookies } from "src/crawler/functions";
-import { ParsedFacebookPostSchema } from "src/ollama/schemas";
-import { PROMPT, MODEL } from "src/ollama/consts";
 
 export async function handleApiRequest(
   req: IncomingMessage,
@@ -34,23 +35,21 @@ export async function handleApiRequest(
       }
       case "/crawler/facebook-post": {
         console.log("hi");
-				const res = await ollama.chat({
-      model: MODEL,
-      stream: false,
-      format: z.toJSONSchema(ParsedFacebookPostSchema),
-      messages: [
-        { role: "assistant", content: PROMPT },
-				//@ts-ignore TODO
-        { role: "user", content: text },
-      ],
-    });
+        const res = await ollama.chat({
+          model: MODEL,
+          stream: false,
+          format: z.toJSONSchema(ParsedFacebookPostSchema),
+          messages: [
+            { role: "assistant", content: PROMPT },
+            // @ts-expect-error -- hello
+            { role: "user", content: text },
+          ],
+        });
 
-    const result = ParsedFacebookPostSchema.parse(
-      JSON.parse(res.message.content),
-    );
-    return result;
-  }
-
+        const result = ParsedFacebookPostSchema.parse(
+          JSON.parse(res.message.content),
+        );
+        return result;
         break;
       }
     }

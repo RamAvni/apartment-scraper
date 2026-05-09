@@ -12,6 +12,8 @@ function main() {
   const { FACEBOOK_XS, FACEBOOK_C_USER } = process.env;
   assert(FACEBOOK_XS && FACEBOOK_C_USER);
 
+  // TODO: setup mikro-orm or another db connection
+
   const server = createHttpServer();
 
   // On HTTP Request

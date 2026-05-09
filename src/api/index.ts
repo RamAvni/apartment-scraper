@@ -3,7 +3,7 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 import ollama from "ollama";
 import z from "zod";
 import { getCookies } from "../crawler/functions/get-cookies.function.js";
-import { router } from "../crawler/crawlee-routers.js";
+import { results, router } from "../crawler/crawlee-routers.js";
 import { MODEL } from "../ollama/consts/model.const.js";
 import { ParsedFacebookPostSchema } from "../ollama/schemas/parsed-facebook-post.schema.js";
 import { PROMPT } from "../ollama/consts/prompt.const.js";
@@ -28,6 +28,7 @@ export async function handleApiRequest(
             ],
             requestHandlerTimeoutSecs: 60 * 4,
             requestHandler: router,
+            maxConcurrency: 5,
           },
           config,
         );
@@ -37,9 +38,24 @@ export async function handleApiRequest(
           logger("errored in req.body", "error");
           return;
         }
-        console.log(JSON.parse(req.body));
-        await crawler.run(JSON.parse(req.body).urls);
-        res.end("done");
+        const parsedBody: unknown = JSON.parse(req.body);
+        if (
+          !(
+            parsedBody instanceof Object &&
+            "urls" in parsedBody &&
+            Array.isArray(parsedBody.urls)
+          )
+        )
+          return setError(
+            res,
+            new Error(
+              "Incorrect body has been given. expected { urls: string[] }",
+            ),
+          );
+
+        await crawler.run(parsedBody.urls);
+        console.log(results);
+        res.end(JSON.stringify(results));
         break;
       }
       case "/api/crawler/facebook-post": {

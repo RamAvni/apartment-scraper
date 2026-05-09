@@ -7,6 +7,7 @@ import { router } from "../crawler/crawlee-routers.js";
 import { MODEL } from "../ollama/consts/model.const.js";
 import { ParsedFacebookPostSchema } from "../ollama/schemas/parsed-facebook-post.schema.js";
 import { PROMPT } from "../ollama/consts/prompt.const.js";
+import { setError } from "../common/functions/set-error.js";
 
 export async function handleApiRequest(
   req: IncomingMessage,
@@ -29,27 +30,27 @@ export async function handleApiRequest(
         });
 
         // TODO: make sure req.body is string[] of urls
-        // @ts-ignore
         await crawler.run(req.body);
+        res.end("done");
         break;
       }
       case "/crawler/facebook-post": {
-        console.log("hi");
-        const res = await ollama.chat({
+        if (!req.body) return setError(res, new Error("Needs a body"));
+        const ollamaResponse = await ollama.chat({
           model: MODEL,
           stream: false,
           format: z.toJSONSchema(ParsedFacebookPostSchema),
           messages: [
             { role: "assistant", content: PROMPT },
-            // @ts-expect-error -- hello
-            { role: "user", content: text },
+            { role: "user", content: req.body },
           ],
         });
 
         const result = ParsedFacebookPostSchema.parse(
-          JSON.parse(res.message.content),
+          JSON.parse(ollamaResponse.message.content),
         );
-        return result;
+
+        res.end(result);
         break;
       }
     }

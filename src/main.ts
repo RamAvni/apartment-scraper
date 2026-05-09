@@ -7,27 +7,41 @@ import { PORT } from "./common/consts.js";
 import dotenv from "dotenv";
 import assert from "node:assert";
 
-function main() {
+declare module "http" {
+  interface IncomingMessage {
+    body?: string;
+  }
+}
+
+function loadEnvFile() {
   dotenv.config({ path: ".env.development.local" });
   const { FACEBOOK_XS, FACEBOOK_C_USER } = process.env;
   assert(FACEBOOK_XS && FACEBOOK_C_USER);
+}
 
+function main() {
+  loadEnvFile();
   // TODO: setup mikro-orm or another db connection
 
   const server = createHttpServer();
 
   // On HTTP Request
   server.on("request", (req, res) => {
-    if (!req.url) {
+    const url = req.url;
+    if (!url) {
       setError(res, new Error("improper req.url given"));
       return;
-    } else if (req.url.startsWith("/api")) {
-      handleApiRequest(req, res);
-      return;
-    } else {
-      provideStaticResource(req.url, res);
-      return;
     }
+
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+    });
+    req.on("end", () => {
+      req.body = body;
+      if (url.startsWith("/api")) void handleApiRequest(req, res);
+      else void provideStaticResource(url, res);
+    });
   });
 
   server.listen(PORT, () => {

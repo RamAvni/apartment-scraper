@@ -34,6 +34,7 @@ export async function handleApiRequest(
       }
       case "/api/crawler/facebook-post": {
         if (!req.body) return setError(res, new Error("Needs a body"));
+        console.log(req.body);
         const ollamaResponse = await ollama.chat({
           model: MODEL,
           stream: false,
@@ -47,8 +48,9 @@ export async function handleApiRequest(
         const result = ParsedFacebookPostSchema.parse(
           JSON.parse(ollamaResponse.message.content),
         );
+        console.log(result);
 
-        res.end(result);
+        res.end(JSON.stringify(result));
         break;
       }
     }

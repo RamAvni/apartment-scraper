@@ -26,6 +26,8 @@ arnona
 yehuda
 mikro
 dotenv
+mmin
+womp
 
 
 
@@ -52,3 +54,4 @@ dotenv
 כניסה
 מחיר
 לפרטים
+שיתוף

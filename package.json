@@ -3,17 +3,14 @@
   "type": "module",
   "scripts": {
     "start": "bash ./run.sh",
-    "eslint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "orm": "mikro-orm-esm",
     "orm:debug": "NODE_ENV=development pnpm orm debug",
     "build": "tsc",
     "lint": "turbo run eslint ls-lint stylelint",
     "prettier": "prettier --check . --ignore-path ./.prettierignore --ignore-path ./.gitignore --ignore-path ./apps/client/.gitignore --ignore-path ./server/.gitignore",
-    "ls-lint": "ls-lint",
     "stylelint": "stylelint **/*.css",
     "spell": "cspell **",
-    "knip": "knip",
-    "pipeline": "eslint && ls-lint && stylelint && prettier && spell && knip && build"
+    "pipeline": "eslint && ls-lint && pnpm stylelint && prettier --write . && pnpm spell && knip && build"
   },
   "dependencies": {
     "@mikro-orm/core": "catalog:",

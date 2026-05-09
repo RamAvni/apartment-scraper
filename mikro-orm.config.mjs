@@ -15,7 +15,7 @@ export default defineConfig({
   password: process.env.DB_PASSWORD,
 
   // NOTE: Both of these are for the mikro-cli, but won't work with the MikroOrmModule of NestJs
-  entities: ["dist/**/*.entity.js"],
+  entities: ["build/**/*.entity.js"],
   entitiesTs: ["src/**/*.entity.ts"],
 
   // we will use the ts-morph reflection, an alternative to the default reflect-metadata provider

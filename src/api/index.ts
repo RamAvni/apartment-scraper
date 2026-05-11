@@ -60,13 +60,17 @@ export async function handleApiRequest(
       }
       case "/api/crawler/facebook-post": {
         if (!req.body) return setError(res, new Error("Needs a body"));
+        req.body = req.body.replaceAll(/\p{Emoji_Presentation}/gu, "");
         console.log(req.body);
         const ollamaResponse = await ollama.chat({
           model: MODEL,
           stream: false,
           format: z.toJSONSchema(ParsedFacebookPostSchema),
           messages: [
-            { role: "assistant", content: PROMPT },
+            {
+              role: "assistant",
+              content: PROMPT,
+            },
             { role: "user", content: req.body },
           ],
         });

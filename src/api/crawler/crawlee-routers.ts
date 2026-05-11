@@ -2,6 +2,7 @@ import { createPlaywrightRouter } from "crawlee";
 import { expect } from "playwright/test";
 
 export const router = createPlaywrightRouter();
+export const results: Record<string, string>[] = []; // TODO: pls remove this huge variable from the global scope ;-;
 
 router.addHandler("FACEBOOK_POST", async ({ page }) => {
   const postTitle = await page
@@ -16,6 +17,7 @@ router.addHandler("FACEBOOK_POST", async ({ page }) => {
   ).join();
 
   console.log(postDescription, posterName);
+  results.push({ posterName, postDescription });
 });
 
 router.addDefaultHandler(async ({ page, request, enqueueLinks }) => {

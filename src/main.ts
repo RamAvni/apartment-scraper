@@ -21,7 +21,6 @@ function loadEnvFile() {
 
 function main() {
   loadEnvFile();
-  // TODO: setup mikro-orm or another db connection
 
   const server = createHttpServer();
 

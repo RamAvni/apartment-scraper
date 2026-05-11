@@ -4,7 +4,7 @@ import { logger } from "../common/functions/logger.js";
 import { readFile } from "node:fs";
 import { setError } from "../common/functions/set-error.js";
 
-export function getContentType(fileSuffix: string) {
+function getContentType(fileSuffix: string) {
   switch (fileSuffix) {
     case ".js":
       return `text/javascript`;
@@ -16,7 +16,7 @@ export function getContentType(fileSuffix: string) {
   }
 }
 
-export function processRequestUrl(url: string, res: ServerResponse) {
+function processRequestUrl(url: string, res: ServerResponse) {
   let filePath = joinPath(import.meta.dirname, "/static", url);
 
   if (url.at(-1) === "/" || !url.split("/").at(-1)?.includes("."))

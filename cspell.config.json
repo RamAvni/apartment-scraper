@@ -15,6 +15,7 @@
     "**/build**",
     "**/storage**",
     "**/README.md",
-    "**/migrations"
+    "**/migrations",
+    "todo*"
   ]
 }

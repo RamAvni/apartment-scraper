@@ -4,7 +4,6 @@ vitejs
 nodenext
 avni
 knip
-commitlint
 crawlee
 dtos
 ollama
@@ -24,7 +23,6 @@ vaad
 bayit
 arnona
 yehuda
-mikro
 dotenv
 mmin
 womp

@@ -18,8 +18,5 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false
-  },
-  "ts-node": {
-    "esm": true
   }
 }

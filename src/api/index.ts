@@ -2,11 +2,10 @@ import { PlaywrightCrawler, Configuration } from "crawlee";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import ollama from "ollama";
 import z from "zod";
-import { getCookies } from "./crawler/functions/get-cookies.function.js";
-import { results, router } from "./crawler/crawlee-routers.js";
-import { MODEL } from "./ollama/consts/model.const.js";
-import { ParsedFacebookPostSchema } from "./ollama/schemas/parsed-facebook-post.schema.js";
-import { PROMPT } from "./ollama/consts/prompt.const.js";
+import { getCookies } from "./crawler/functions/index.js";
+import { results, router } from "./crawler/index.js";
+import { MODEL, PROMPT } from "./ollama/consts/index.js";
+import { ParsedFacebookPostSchema } from "./ollama/schemas/index.js";
 import { setError } from "../common/functions/set-error.js";
 import { logger } from "../common/functions/logger.js";
 

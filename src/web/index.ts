@@ -16,7 +16,7 @@ export function getContentType(fileSuffix: string) {
   }
 }
 
-export function processRequestUrl(url: string, res: ServerResponse) {
+function processRequestUrl(url: string, res: ServerResponse) {
   let filePath = joinPath(import.meta.dirname, "/static", url);
 
   if (url.at(-1) === "/" || !url.split("/").at(-1)?.includes("."))

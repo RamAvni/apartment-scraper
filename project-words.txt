@@ -26,6 +26,7 @@ yehuda
 dotenv
 mmin
 womp
+tinyint
 
 
 

@@ -7,11 +7,12 @@
     "prettier": "prettier --check . --ignore-path ./.prettierignore --ignore-path ./.gitignore --ignore-path ./apps/client/.gitignore --ignore-path ./server/.gitignore",
     "stylelint": "stylelint **/*.css",
     "spell": "cspell **",
-    "pipeline": "eslint && ls-lint && pnpm stylelint && prettier --write . && pnpm spell && knip && pnpm build"
+    "pipeline": "eslint & ls-lint & pnpm stylelint & prettier --write . & pnpm spell & knip & pnpm build"
   },
   "dependencies": {
     "crawlee": "catalog:",
     "dotenv": "catalog:",
+    "mysql2": "catalog:",
     "ollama": "catalog:",
     "playwright": "catalog:",
     "zod": "catalog:"

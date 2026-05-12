@@ -12,6 +12,7 @@
   "dependencies": {
     "crawlee": "catalog:",
     "dotenv": "catalog:",
+    "mysql2": "catalog:",
     "ollama": "catalog:",
     "playwright": "catalog:",
     "zod": "catalog:"

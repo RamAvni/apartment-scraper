@@ -1,8 +1,6 @@
 packages:
   - packages/*
 
-catalogMode: strict
-
 catalog:
   '@eslint/js': 9.32.0
   '@ls-lint/ls-lint': ^2.3.1
@@ -15,6 +13,7 @@ catalog:
   eslint-plugin-prettier: ^5.5.3
   globals: ^16.5.0
   knip: ^5.62.0
+  mysql2: ^3.22.3
   ollama: ^0.5.18
   playwright: ^1.59.1
   prettier: ^3.6.2
@@ -23,3 +22,5 @@ catalog:
   typescript: ^5.9.3
   typescript-eslint: ^8.39.0
   zod: ^4.3.6
+
+catalogMode: strict

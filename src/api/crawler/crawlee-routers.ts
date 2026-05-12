@@ -16,12 +16,10 @@ router.addHandler("FACEBOOK_POST", async ({ page }) => {
       .allInnerTexts()
   ).join();
 
-  console.log(postDescription, posterName);
   results.push({ posterName, postDescription });
 });
 
 router.addDefaultHandler(async ({ page, request, enqueueLinks }) => {
-  console.log("here!");
   await expect(page.getByText("שיתוף").first()).toBeVisible();
 
   const postLinksArr: string[] = [];
@@ -33,7 +31,6 @@ router.addDefaultHandler(async ({ page, request, enqueueLinks }) => {
       .locator("div:nth-child(n+2)")
       .evaluateAll((divs, passedUrl) => {
         // NOTE: Runs in the browser itself!
-        console.log(passedUrl);
         return divs
           .map((div) => {
             const href = div
@@ -57,8 +54,6 @@ router.addDefaultHandler(async ({ page, request, enqueueLinks }) => {
   }
 
   const postLinksPure = [...new Set(postLinksArr)];
-  console.log("postLinks:", postLinksPure);
-  console.log(postLinksPure.length);
 
   await enqueueLinks({
     urls: postLinksPure,

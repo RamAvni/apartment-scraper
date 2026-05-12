@@ -53,14 +53,12 @@ export async function handleApiRequest(
           );
 
         await crawler.run(parsedBody.urls);
-        console.log(results);
         res.end(JSON.stringify(results));
         break;
       }
       case "/api/crawler/facebook-post": {
         if (!req.body) return setError(res, new Error("Needs a body"));
         req.body = req.body.replaceAll(/\p{Emoji_Presentation}/gu, "");
-        console.log(req.body);
         const ollamaResponse = await ollama.chat({
           model: MODEL,
           stream: false,
@@ -77,7 +75,6 @@ export async function handleApiRequest(
         const result = ParsedFacebookPostSchema.parse(
           JSON.parse(ollamaResponse.message.content),
         );
-        console.log(result);
 
         res.end(JSON.stringify(result));
         break;

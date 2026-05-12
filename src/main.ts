@@ -43,7 +43,8 @@ async function initDatabase() {
     `CREATE TABLE IF NOT EXISTS posts 
 		(id int AUTO_INCREMENT PRIMARY KEY,
 		 posterName VARCHAR(255),
-		 postContent VARCHAR(255))`,
+		 postContent VARCHAR(255),
+		 siteId int)`,
   );
 
   await dbConnection.query(
@@ -81,7 +82,6 @@ async function initDatabase() {
 async function main() {
   loadEnvFile();
   await initDatabase();
-  logger(process.env.DB_NAME || "", "info");
 
   const server = createHttpServer();
 

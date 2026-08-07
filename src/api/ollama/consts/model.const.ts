@@ -1,1 +1,1 @@
-export const MODEL = "cogito";
+export const MODEL = "lfm2.5:latest";

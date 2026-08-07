@@ -53,21 +53,19 @@ export async function handleApiRequest(
           );
 
         await crawler.run(parsedBody.urls);
-        console.log(results);
         res.end(JSON.stringify(results));
         break;
       }
       case "/api/crawler/facebook-post": {
         if (!req.body) return setError(res, new Error("Needs a body"));
         req.body = req.body.replaceAll(/\p{Emoji_Presentation}/gu, "");
-        console.log(req.body);
         const ollamaResponse = await ollama.chat({
           model: MODEL,
           stream: false,
           format: z.toJSONSchema(ParsedFacebookPostSchema),
           messages: [
             {
-              role: "assistant",
+              role: "system",
               content: PROMPT,
             },
             { role: "user", content: req.body },
@@ -77,9 +75,9 @@ export async function handleApiRequest(
         const result = ParsedFacebookPostSchema.parse(
           JSON.parse(ollamaResponse.message.content),
         );
-        console.log(result);
 
-        res.end(JSON.stringify(result));
+        res.setHeader("Content-Type", "application/json; charset=utf-8");
+        res.end(JSON.stringify(result), "utf8");
         break;
       }
     }

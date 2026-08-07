@@ -26,6 +26,7 @@ yehuda
 dotenv
 mmin
 womp
+tinyint
 
 
 
@@ -54,3 +55,4 @@ womp
 לפרטים
 שיתוף
 שותפים
+שוטפות 

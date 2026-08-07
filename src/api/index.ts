@@ -65,7 +65,7 @@ export async function handleApiRequest(
           format: z.toJSONSchema(ParsedFacebookPostSchema),
           messages: [
             {
-              role: "assistant",
+              role: "system",
               content: PROMPT,
             },
             { role: "user", content: req.body },
@@ -76,7 +76,8 @@ export async function handleApiRequest(
           JSON.parse(ollamaResponse.message.content),
         );
 
-        res.end(JSON.stringify(result));
+        res.setHeader("Content-Type", "application/json; charset=utf-8");
+        res.end(JSON.stringify(result), "utf8");
         break;
       }
     }

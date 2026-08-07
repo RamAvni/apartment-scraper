@@ -2,6 +2,11 @@ import z from "zod";
 
 // NOTE: Every change in the schema must be reflected in the prompt as well, or it might cause severe hallucinations.
 export const ParsedFacebookPostSchema = z.object({
+  thinking: z
+    .array(z.string())
+    .describe(
+      "Analyze the text here first. Translate slang/typos (like שוטפות to roommates), isolate numbers, and plan the fields.",
+    ),
   rent_type: z.nullable(z.enum(["long-term", "short-term", "sublet"])),
   is_shared: z.nullable(z.boolean()),
   city: z.nullable(z.string()),

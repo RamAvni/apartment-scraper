@@ -18,6 +18,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "llm-layer": "workspace:*",
     "@eslint/js": "catalog:",
     "@ls-lint/ls-lint": "catalog:",
     "@types/node": "catalog:",

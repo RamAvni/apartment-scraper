@@ -1,21 +1,19 @@
 start() {
 	echo "Removing existing build directory"
-	rm -rf build
+	rm -rf build 
 
 	echo "Compiling..."
-	pnpm tsc # Build the whole project
+	pnpm tsc -b # Build the whole project
 	echo "Copying static files..."
 	rsync -a --exclude='*.ts' src/web/static build/web # Copy the static files into build
 
 	echo -e "Running the Server: \n"
 	node ./build/main.js & # Run web server
-	docker start ollama
 	return 0
 }
 
 cleanup() {
 	echo "Exited. Cleaning up..."
-	docker stop ollama
 }
 
 startInWatchMode() {

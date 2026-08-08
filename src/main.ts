@@ -7,6 +7,7 @@ import { PORT } from "./common/consts.js";
 import dotenv from "dotenv";
 import assert from "node:assert";
 import mysql from "mysql2/promise";
+import LLMLayer from "llm-layer";
 
 declare module "http" {
   interface IncomingMessage {
@@ -80,6 +81,7 @@ async function initDatabase() {
 }
 
 async function main() {
+  console.log(LLMLayer);
   loadEnvFile();
   await initDatabase();
 

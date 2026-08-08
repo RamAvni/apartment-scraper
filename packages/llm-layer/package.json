@@ -1,0 +1,7 @@
+{
+  "name": "llm-layer",
+  "scripts": {},
+  "dependencies": {
+    "zod": "catalog:"
+  }
+}

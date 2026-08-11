@@ -5,7 +5,7 @@ import z from "zod";
 import { getCookies } from "./crawler/functions/index.js";
 import { results, router } from "./crawler/index.js";
 import { MODEL, PROMPT } from "./ollama/consts/index.js";
-import { ParsedFacebookPostSchema } from "./ollama/schemas/index.js";
+import { createParsedFacebookPostSchema } from "./ollama/schemas/index.js";
 import { setError } from "../common/functions/set-error.js";
 import { logger } from "../common/functions/logger.js";
 
@@ -58,11 +58,12 @@ export async function handleApiRequest(
       }
       case "/api/crawler/facebook-post": {
         if (!req.body) return setError(res, new Error("Needs a body"));
+        const parsedFacebookPostSchema = createParsedFacebookPostSchema([], []);
         req.body = req.body.replaceAll(/\p{Emoji_Presentation}/gu, "");
         const ollamaResponse = await ollama.chat({
           model: MODEL,
           stream: false,
-          format: z.toJSONSchema(ParsedFacebookPostSchema),
+          format: z.toJSONSchema(parsedFacebookPostSchema),
           messages: [
             {
               role: "system",
@@ -72,7 +73,7 @@ export async function handleApiRequest(
           ],
         });
 
-        const result = ParsedFacebookPostSchema.parse(
+        const result = parsedFacebookPostSchema.parse(
           JSON.parse(ollamaResponse.message.content),
         );
 

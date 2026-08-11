@@ -8,6 +8,11 @@ import dotenv from "dotenv";
 import assert from "node:assert";
 import mysql from "mysql2/promise";
 import LLMLayer from "llm-layer";
+import { createParsedFacebookPostSchema } from "./api/ollama/schemas/parsed-facebook-post.schema.js";
+import {
+  JERUSALEM_NEIGHBORHOODS,
+  PROMPT,
+} from "./api/ollama/consts/prompt.const.js";
 
 declare module "http" {
   interface IncomingMessage {
@@ -82,6 +87,21 @@ async function initDatabase() {
 
 async function main() {
   console.log(LLMLayer);
+  console.time("callTime");
+  const hi = await LLMLayer.call(
+    PROMPT,
+    `
+בהזדמנות במיקום מושלם
+במדרחוב בן יהודה, דירת סטודיו מרווחת 30 מ"ר ממוזגת. קומה אחת לעלות ללא מעלית. אפשרות לריהוט מלא. קרובה להכל, חנויות, מרכזי בילוי, תחבורה ציבורית ועוד. 
+כניסה מיידית. 
+3,600 ש"ח
+לפרטים נוספים תמר 050-9903070
+		`,
+    createParsedFacebookPostSchema(JERUSALEM_NEIGHBORHOODS, []), // TODO: jerusalem streets
+    "ParsedFacebookPostSchema",
+  );
+  console.timeEnd("callTime");
+  console.log(hi);
   loadEnvFile();
   await initDatabase();
 

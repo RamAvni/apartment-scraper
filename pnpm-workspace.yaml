@@ -1,4 +1,5 @@
 packages:
+  - apartment-scraper
   - packages/*
 
 catalog:
@@ -15,6 +16,7 @@ catalog:
   knip: ^5.62.0
   mysql2: ^3.22.3
   ollama: ^0.5.18
+  openai: ^7.4.0
   playwright: ^1.59.1
   prettier: ^3.6.2
   stylelint: ^16.23.0

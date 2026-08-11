@@ -1,7 +1,17 @@
 {
   "name": "llm-layer",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "import": "./build/index.js",
+      "require": "./build/index.js,"
+    }
+  },
   "scripts": {},
   "dependencies": {
     "zod": "catalog:"
+  },
+  "devDependencies": {
+    "openai": "catalog:"
   }
 }

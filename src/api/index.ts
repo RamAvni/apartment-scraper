@@ -1,13 +1,13 @@
 import { PlaywrightCrawler, Configuration } from "crawlee";
 import type { IncomingMessage, ServerResponse } from "node:http";
-import ollama from "ollama";
 import z from "zod";
 import { getCookies } from "./crawler/functions/index.js";
 import { results, router } from "./crawler/index.js";
-import { MODEL, PROMPT } from "./ollama/consts/index.js";
-import { createParsedFacebookPostSchema } from "./ollama/schemas/index.js";
 import { setError } from "../common/functions/set-error.js";
 import { logger } from "../common/functions/logger.js";
+import { createParsedFacebookPostSchema } from "../common/schemas/parsed-facebook-post.schema.js";
+import LLM_Layer from "llm-layer";
+import { PROMPT } from "../common/consts/prompt.const.js";
 
 export async function handleApiRequest(
   req: IncomingMessage,
@@ -60,21 +60,15 @@ export async function handleApiRequest(
         if (!req.body) return setError(res, new Error("Needs a body"));
         const parsedFacebookPostSchema = createParsedFacebookPostSchema([], []);
         req.body = req.body.replaceAll(/\p{Emoji_Presentation}/gu, "");
-        const ollamaResponse = await ollama.chat({
-          model: MODEL,
-          stream: false,
-          format: z.toJSONSchema(parsedFacebookPostSchema),
-          messages: [
-            {
-              role: "system",
-              content: PROMPT,
-            },
-            { role: "user", content: req.body },
-          ],
-        });
+        const LLMResponse = LLM_Layer.call(
+          PROMPT,
+          req.body,
+          z.toJSONSchema(parsedFacebookPostSchema),
+          "parsedFacebookPostSchema",
+        );
 
         const result = parsedFacebookPostSchema.parse(
-          JSON.parse(ollamaResponse.message.content),
+          JSON.parse(LLMResponse.message.content),
         );
 
         res.setHeader("Content-Type", "application/json; charset=utf-8");

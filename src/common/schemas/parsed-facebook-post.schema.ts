@@ -24,16 +24,13 @@ export function createParsedFacebookPostSchema(
         .nullable(z.string())
         .describe("Only if the name of the city is mentioned. Prefer null"),
       neighborhood: z
-        .nullable(z.enum(neighborhoods))
+        .nullable(neighborhoods ? z.enum(neighborhoods) : z.string())
         .describe(
-          "Out of the possible neighborhoods. If no neighborhood is written, write null here.",
+          "A possible neighborhood. If no neighborhood is written, write null here.",
         ),
       street: z
-        .nullable(
-          z.string(),
-          //z.enum(streets)
-        )
-        .describe("Out of the possible streets"),
+        .nullable(streets ? z.enum(streets) : z.string())
+        .describe("A possible street"),
       rent_price: z.nullable(z.number()),
       num_rooms: z
         .nullable(z.number())

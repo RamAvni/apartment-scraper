@@ -1,4 +1,4 @@
-import z, { type ZodSchema } from "zod";
+import z from "zod";
 import type { ChatCompletionCreateParams } from "openai/resources/chat/completions";
 
 /**
@@ -7,7 +7,7 @@ For the types, see: https://github.com/ggml-org/llama.cpp/blob/master/tools/serv
 export async function call(
   systemPrompt: string,
   userPrompt: string,
-  zodSchema: ZodSchema,
+  zodSchema: unknown,
   zodSchemaName: string,
   timeout: number = 3 * 60 * 1000,
 ) {
